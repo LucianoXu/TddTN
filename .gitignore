@@ -36,3 +36,5 @@ coverage.xml
 
 # Max OS
 .DS_Store
+
+tensornetwork/backends/tdd/tdd/
