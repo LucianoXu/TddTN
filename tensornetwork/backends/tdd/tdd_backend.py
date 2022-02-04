@@ -23,14 +23,20 @@ class TDDBackend(abstract_backend.AbstractBackend):
                 axes: Union[int, Sequence[Sequence[int]]]) -> Tensor:
     return tdd.tensordot(a, b, axes=axes)
 
-  def convert_to_tensor(self, tensor: Any) -> Tensor:
-    return tdd.as_tensor(tensor)
+  def transpose(self, tensor, perm=None) -> Tensor:
+    if perm is None:
+      perm = tuple(range(tensor.dim_data - 1, -1, -1))
+    return tensor.permute(perm)
+
   
   def shape_tensor(self, tensor: Tensor) -> Tensor:
-    return tdd.as_tensor(tensor.data_shape)
+    return tdd.as_tensor(np.array(tensor.data_shape))
   
   def shape_tuple(self, tensor: Tensor) -> Tuple[Optional[int], ...]:
     return tuple(tensor.data_shape)
+    
+  def convert_to_tensor(self, tensor: Any) -> Tensor:
+    return tdd.as_tensor(tensor)
 
   def outer_product(self, tensor1: Tensor, tensor2: Tensor) -> Tensor:
     return tdd.tensordot(tensor1, tensor2, axes=0)
