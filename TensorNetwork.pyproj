@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{dac09aed-7a7a-4c26-995e-95d30c60de21}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>test.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="docs\requirements_docs.txt" />
+    <Content Include="docs\_static\basic_mps\mps_basic_1.png" />
+    <Content Include="docs\_static\basic_mps\mps_basic_2.png" />
+    <Content Include="docs\_static\basic_mps\mps_basic_4.png" />
+    <Content Include="docs\_static\basic_mps\tensor_1.png" />
+    <Content Include="docs\_static\basic_mps\tensor_2.png" />
+    <Content Include="docs\_static\basic_mps\tensor_3.png" />
+    <Content Include="docs\_static\basic_mps\tensor_4.png" />
+    <Content Include="docs\_static\blocktensor.png" />
+    <Content Include="docs\_static\contractors.png" />
+    <Content Include="docs\_static\dangling_contract.png" />
+    <Content Include="docs\_static\replicate_nodes_subgraph.png" />
+    <Content Include="docs\_static\subgraph_contract.png" />
+    <Content Include="docs\_static\svd.png" />
+    <Content Include="docs\_static\tensornetwork_logo.jpg" />
+    <Content Include="output.png" />
+    <Content Include="requirements.txt" />
+    <Content Include="requirements_travis.txt" />
+    <Content Include="tensornetwork\tn_keras\images\condenser.png" />
+    <Content Include="tensornetwork\tn_keras\images\decomp.png" />
+    <Content Include="tensornetwork\tn_keras\images\entangler.png" />
+    <Content Include="tensornetwork\tn_keras\images\expander.png" />
+    <Content Include="tensornetwork\tn_keras\images\mpo.png" />
+    <Content Include="tensornetwork\tn_keras\images\staircase_entangler.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="conftest.py" />
+    <Compile Include="docs\conf.py" />
+    <Compile Include="examples\custom_path_solvers\example.py" />
+    <Compile Include="examples\dmrg\symmetric_dmrg.py" />
+    <Compile Include="examples\fft\fft.py" />
+    <Compile Include="examples\fft\fft_test.py" />
+    <Compile Include="examples\fft\__init__.py" />
+    <Compile Include="examples\sat\sat_tensornetwork.py" />
+    <Compile Include="examples\sat\sat_tensornetwork_test.py" />
+    <Compile Include="examples\sat\__init__.py" />
+    <Compile Include="examples\simple_mera\simple_mera.py" />
+    <Compile Include="examples\simple_mera\simple_mera_test.py" />
+    <Compile Include="examples\wavefunctions\evolution_example.py" />
+    <Compile Include="examples\wavefunctions\trotter.py" />
+    <Compile Include="examples\wavefunctions\wavefunctions.py" />
+    <Compile Include="examples\wavefunctions\wavefunctions_test.py" />
+    <Compile Include="examples\__init__.py" />
+    <Compile Include="setup.py" />
+    <Compile Include="tensornetwork\backends\abstract_backend.py" />
+    <Compile Include="tensornetwork\backends\backend_factory.py" />
+    <Compile Include="tensornetwork\backends\backend_test.py" />
+    <Compile Include="tensornetwork\backends\decorators.py" />
+    <Compile Include="tensornetwork\backends\decorators_test.py" />
+    <Compile Include="tensornetwork\backends\jax\jax_backend.py" />
+    <Compile Include="tensornetwork\backends\jax\jax_backend_test.py" />
+    <Compile Include="tensornetwork\backends\jax\jitted_functions.py" />
+    <Compile Include="tensornetwork\backends\jax\jitted_functions_test.py" />
+    <Compile Include="tensornetwork\backends\jax\__init__.py" />
+    <Compile Include="tensornetwork\backends\numpy\decompositions.py" />
+    <Compile Include="tensornetwork\backends\numpy\decompositions_test.py" />
+    <Compile Include="tensornetwork\backends\numpy\numpy_backend.py" />
+    <Compile Include="tensornetwork\backends\numpy\numpy_backend_test.py" />
+    <Compile Include="tensornetwork\backends\numpy\__init__.py" />
+    <Compile Include="tensornetwork\backends\pytorch\decompositions.py" />
+    <Compile Include="tensornetwork\backends\pytorch\decompositions_test.py" />
+    <Compile Include="tensornetwork\backends\pytorch\pytorch_backend.py" />
+    <Compile Include="tensornetwork\backends\pytorch\pytorch_backend_test.py" />
+    <Compile Include="tensornetwork\backends\pytorch\pytorch_tensornetwork_test.py" />
+    <Compile Include="tensornetwork\backends\pytorch\__init__.py" />
+    <Compile Include="tensornetwork\backends\symmetric\decompositions.py" />
+    <Compile Include="tensornetwork\backends\symmetric\decompositions_test.py" />
+    <Compile Include="tensornetwork\backends\symmetric\symmetric_backend.py" />
+    <Compile Include="tensornetwork\backends\symmetric\symmetric_backend_test.py" />
+    <Compile Include="tensornetwork\backends\symmetric\__init__.py" />
+    <Compile Include="tensornetwork\backends\tdd\tdd\CUDAcpl\config.py" />
+    <Compile Include="tensornetwork\backends\tdd\tdd\CUDAcpl\main.py" />
+    <Compile Include="tensornetwork\backends\tdd\tdd\CUDAcpl\quantum_basic.py" />
+    <Compile Include="tensornetwork\backends\tdd\tdd\CUDAcpl\__init__.py" />
+    <Compile Include="tensornetwork\backends\tdd\tdd\global_val.py" />
+    <Compile Include="tensornetwork\backends\tdd\tdd\methods.py" />
+    <Compile Include="tensornetwork\backends\tdd\tdd\node.py" />
+    <Compile Include="tensornetwork\backends\tdd\tdd\tdd.py" />
+    <Compile Include="tensornetwork\backends\tdd\tdd\weighted_node.py" />
+    <Compile Include="tensornetwork\backends\tdd\tdd\__init__.py" />
+    <Compile Include="tensornetwork\backends\tdd\tdd_backend.py" />
+    <Compile Include="tensornetwork\backends\tdd\__init__.py" />
+    <Compile Include="tensornetwork\backends\tensorflow\decompositions.py" />
+    <Compile Include="tensornetwork\backends\tensorflow\decompositions_test.py" />
+    <Compile Include="tensornetwork\backends\tensorflow\tensordot2.py" />
+    <Compile Include="tensornetwork\backends\tensorflow\tensordot2_test.py" />
+    <Compile Include="tensornetwork\backends\tensorflow\tensorflow_backend.py" />
+    <Compile Include="tensornetwork\backends\tensorflow\tensorflow_backend_test.py" />
+    <Compile Include="tensornetwork\backends\tensorflow\tensorflow_tensornetwork_test.py" />
+    <Compile Include="tensornetwork\backends\tensorflow\__init__.py" />
+    <Compile Include="tensornetwork\backends\__init__.py" />
+    <Compile Include="tensornetwork\backend_contextmanager.py" />
+    <Compile Include="tensornetwork\block_sparse\blocksparsetensor.py" />
+    <Compile Include="tensornetwork\block_sparse\blocksparsetensor_test.py" />
+    <Compile Include="tensornetwork\block_sparse\blocksparse_utils.py" />
+    <Compile Include="tensornetwork\block_sparse\blocksparse_utils_test.py" />
+    <Compile Include="tensornetwork\block_sparse\caching.py" />
+    <Compile Include="tensornetwork\block_sparse\caching_test.py" />
+    <Compile Include="tensornetwork\block_sparse\charge.py" />
+    <Compile Include="tensornetwork\block_sparse\charge_test.py" />
+    <Compile Include="tensornetwork\block_sparse\index.py" />
+    <Compile Include="tensornetwork\block_sparse\index_test.py" />
+    <Compile Include="tensornetwork\block_sparse\initialization.py" />
+    <Compile Include="tensornetwork\block_sparse\initialization_test.py" />
+    <Compile Include="tensornetwork\block_sparse\linalg.py" />
+    <Compile Include="tensornetwork\block_sparse\linalg_test.py" />
+    <Compile Include="tensornetwork\block_sparse\sizetypes.py" />
+    <Compile Include="tensornetwork\block_sparse\tensordot_test.py" />
+    <Compile Include="tensornetwork\block_sparse\utils.py" />
+    <Compile Include="tensornetwork\block_sparse\utils_test.py" />
+    <Compile Include="tensornetwork\block_sparse\__init__.py" />
+    <Compile Include="tensornetwork\component_factory.py" />
+    <Compile Include="tensornetwork\config.py" />
+    <Compile Include="tensornetwork\contractors\bucket_contractor.py" />
+    <Compile Include="tensornetwork\contractors\bucket_contractor_test.py" />
+    <Compile Include="tensornetwork\contractors\custom_path_solvers\nconinterface.py" />
+    <Compile Include="tensornetwork\contractors\custom_path_solvers\nconinterface_test.py" />
+    <Compile Include="tensornetwork\contractors\custom_path_solvers\pathsolvers.py" />
+    <Compile Include="tensornetwork\contractors\custom_path_solvers\pathsolvers_test.py" />
+    <Compile Include="tensornetwork\contractors\custom_path_solvers\__init__.py" />
+    <Compile Include="tensornetwork\contractors\opt_einsum_paths\path_calculation_test.py" />
+    <Compile Include="tensornetwork\contractors\opt_einsum_paths\path_contractors.py" />
+    <Compile Include="tensornetwork\contractors\opt_einsum_paths\path_contractors_node_test.py" />
+    <Compile Include="tensornetwork\contractors\opt_einsum_paths\utils.py" />
+    <Compile Include="tensornetwork\contractors\opt_einsum_paths\__init__.py" />
+    <Compile Include="tensornetwork\contractors\__init__.py" />
+    <Compile Include="tensornetwork\linalg\initialization.py" />
+    <Compile Include="tensornetwork\linalg\krylov.py" />
+    <Compile Include="tensornetwork\linalg\linalg.py" />
+    <Compile Include="tensornetwork\linalg\node_linalg.py" />
+    <Compile Include="tensornetwork\linalg\operations.py" />
+    <Compile Include="tensornetwork\linalg\tests\initialization_test.py" />
+    <Compile Include="tensornetwork\linalg\tests\node_linalg_test.py" />
+    <Compile Include="tensornetwork\linalg\tests\test_krylov.py" />
+    <Compile Include="tensornetwork\linalg\tests\test_linalg.py" />
+    <Compile Include="tensornetwork\linalg\tests\test_operations.py" />
+    <Compile Include="tensornetwork\linalg\__init__.py" />
+    <Compile Include="tensornetwork\matrixproductstates\base_mps.py" />
+    <Compile Include="tensornetwork\matrixproductstates\base_mps_test.py" />
+    <Compile Include="tensornetwork\matrixproductstates\dmrg.py" />
+    <Compile Include="tensornetwork\matrixproductstates\dmrg_test.py" />
+    <Compile Include="tensornetwork\matrixproductstates\finite_mps.py" />
+    <Compile Include="tensornetwork\matrixproductstates\finite_mps_test.py" />
+    <Compile Include="tensornetwork\matrixproductstates\infinite_mps.py" />
+    <Compile Include="tensornetwork\matrixproductstates\infinite_mps_test.py" />
+    <Compile Include="tensornetwork\matrixproductstates\mpo.py" />
+    <Compile Include="tensornetwork\matrixproductstates\mpo_test.py" />
+    <Compile Include="tensornetwork\matrixproductstates\__init__.py" />
+    <Compile Include="tensornetwork\ncon_interface.py" />
+    <Compile Include="tensornetwork\network_components.py" />
+    <Compile Include="tensornetwork\network_operations.py" />
+    <Compile Include="tensornetwork\ops.py" />
+    <Compile Include="tensornetwork\quantum\quantum.py" />
+    <Compile Include="tensornetwork\quantum\quantum_test.py" />
+    <Compile Include="tensornetwork\tensor.py" />
+    <Compile Include="tensornetwork\tests\backend_contextmanager_test.py" />
+    <Compile Include="tensornetwork\tests\ncon_interface_test.py" />
+    <Compile Include="tensornetwork\tests\network_components_free_symmetric_test.py" />
+    <Compile Include="tensornetwork\tests\network_components_free_test.py" />
+    <Compile Include="tensornetwork\tests\network_operations_symmetric_test.py" />
+    <Compile Include="tensornetwork\tests\network_operations_test.py" />
+    <Compile Include="tensornetwork\tests\network_test.py" />
+    <Compile Include="tensornetwork\tests\serialize_test.py" />
+    <Compile Include="tensornetwork\tests\split_node_symmetric_test.py" />
+    <Compile Include="tensornetwork\tests\split_node_test.py" />
+    <Compile Include="tensornetwork\tests\tensornetwork_symmetric_test.py" />
+    <Compile Include="tensornetwork\tests\tensornetwork_test.py" />
+    <Compile Include="tensornetwork\tests\tensor_test.py" />
+    <Compile Include="tensornetwork\tests\testing_utils.py" />
+    <Compile Include="tensornetwork\tests\__init__.py" />
+    <Compile Include="tensornetwork\tn_keras\condenser.py" />
+    <Compile Include="tensornetwork\tn_keras\conv2d_mpo.py" />
+    <Compile Include="tensornetwork\tn_keras\dense.py" />
+    <Compile Include="tensornetwork\tn_keras\entangler.py" />
+    <Compile Include="tensornetwork\tn_keras\expander.py" />
+    <Compile Include="tensornetwork\tn_keras\layers.py" />
+    <Compile Include="tensornetwork\tn_keras\mpo.py" />
+    <Compile Include="tensornetwork\tn_keras\test_conv_layer.py" />
+    <Compile Include="tensornetwork\tn_keras\test_layer.py" />
+    <Compile Include="tensornetwork\tn_keras\test_mpo.py" />
+    <Compile Include="tensornetwork\tn_keras\__init__.py" />
+    <Compile Include="tensornetwork\utils.py" />
+    <Compile Include="tensornetwork\version.py" />
+    <Compile Include="tensornetwork\visualization\graphviz.py" />
+    <Compile Include="tensornetwork\visualization\graphviz_test.py" />
+    <Compile Include="tensornetwork\visualization\__init__.py" />
+    <Compile Include="tensornetwork\__init__.py" />
+    <Compile Include="test.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="docs" />
+    <Folder Include="docs\_static" />
+    <Folder Include="docs\_static\basic_mps" />
+    <Folder Include="examples" />
+    <Folder Include="examples\custom_path_solvers" />
+    <Folder Include="examples\dmrg" />
+    <Folder Include="examples\fft" />
+    <Folder Include="examples\sat" />
+    <Folder Include="examples\simple_mera" />
+    <Folder Include="examples\wavefunctions" />
+    <Folder Include="tensornetwork" />
+    <Folder Include="tensornetwork\backends" />
+    <Folder Include="tensornetwork\backends\jax" />
+    <Folder Include="tensornetwork\backends\numpy" />
+    <Folder Include="tensornetwork\backends\pytorch" />
+    <Folder Include="tensornetwork\backends\symmetric" />
+    <Folder Include="tensornetwork\backends\tdd" />
+    <Folder Include="tensornetwork\backends\tdd\tdd" />
+    <Folder Include="tensornetwork\backends\tdd\tdd\CUDAcpl" />
+    <Folder Include="tensornetwork\backends\tensorflow" />
+    <Folder Include="tensornetwork\block_sparse" />
+    <Folder Include="tensornetwork\contractors" />
+    <Folder Include="tensornetwork\contractors\custom_path_solvers" />
+    <Folder Include="tensornetwork\contractors\opt_einsum_paths" />
+    <Folder Include="tensornetwork\linalg" />
+    <Folder Include="tensornetwork\linalg\tests" />
+    <Folder Include="tensornetwork\matrixproductstates" />
+    <Folder Include="tensornetwork\quantum" />
+    <Folder Include="tensornetwork\tests" />
+    <Folder Include="tensornetwork\tn_keras" />
+    <Folder Include="tensornetwork\tn_keras\images" />
+    <Folder Include="tensornetwork\visualization" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\tdd\ctdd\ctdd.vcxproj">
+      <Name>ctdd</Name>
+      <Project>{809258fc-9607-4de8-a5d9-1e3151a61fb6}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\tdd\pytdd\pytdd.pyproj">
+      <Name>pytdd</Name>
+      <Project>{5f5efa84-b7f3-4cd6-afeb-60291febebb3}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>

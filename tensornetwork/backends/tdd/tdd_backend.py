@@ -28,13 +28,19 @@ class TDDBackend(abstract_backend.AbstractBackend):
       perm = tuple(range(tensor.dim_data - 1, -1, -1))
     return tensor.permute(perm)
 
+  def shape_concat(self, values: Tuple[Optional[int],...], axis: int) -> Tuple[Optional[int],...]:
+    return np.concatenate(values, axis)
+
   
-  def shape_tensor(self, tensor: Tensor) -> Tensor:
-    return tdd.as_tensor(np.array(tensor.data_shape))
+  def shape_tensor(self, tensor: Tensor) -> Tuple[Optional[int],...]:
+    return tuple(tensor.data_shape)
   
   def shape_tuple(self, tensor: Tensor) -> Tuple[Optional[int], ...]:
     return tuple(tensor.data_shape)
     
+  def shape_prod(self, values: Tuple[Optional[int], ...]) -> int:
+    return np.prod(np.array(values))
+
   def convert_to_tensor(self, tensor: Any) -> Tensor:
     return tdd.as_tensor(tensor)
 
