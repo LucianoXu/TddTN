@@ -4,12 +4,13 @@ from typing import Union
 from tensornetwork.backends import abstract_backend
 #from tensornetwork.backends.pytorch import decompositions
 
-from . import tdd
+
+from pytdd import interface
 import numpy as np
 
 # pylint: disable=abstract-method
 
-Tensor = tdd.TDD
+Tensor = interface.TDD
 
 class TDDBackend(abstract_backend.AbstractBackend):
   """See base_backend.BaseBackend for documentation."""
@@ -21,12 +22,12 @@ class TDDBackend(abstract_backend.AbstractBackend):
   
   def tensordot(self, a: Tensor, b: Tensor,
                 axes: Union[int, Sequence[Sequence[int]]]) -> Tensor:
-    return tdd.tensordot(a, b, axes=axes)
+    return interface.tensordot(a, b, axes=axes)
 
   def transpose(self, tensor, perm=None) -> Tensor:
     if perm is None:
       perm = tuple(range(tensor.dim_data - 1, -1, -1))
-    return tensor.permute(perm)
+    return interface.permute(tensor,perm)
 
   def shape_concat(self, values: Tuple[Optional[int],...], axis: int) -> Tuple[Optional[int],...]:
     return np.concatenate(values, axis)
@@ -42,8 +43,8 @@ class TDDBackend(abstract_backend.AbstractBackend):
     return np.prod(np.array(values))
 
   def convert_to_tensor(self, tensor: Any) -> Tensor:
-    return tdd.as_tensor(tensor)
+    return interface.as_tensor(tensor)
 
   def outer_product(self, tensor1: Tensor, tensor2: Tensor) -> Tensor:
-    return tdd.tensordot(tensor1, tensor2, axes=0)
+    return interface.tensordot(tensor1, tensor2, axes=0)
 

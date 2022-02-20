@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{dac09aed-7a7a-4c26-995e-95d30c60de21}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>test.py</StartupFile>
+    <StartupFile>qft_test.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -21,6 +21,73 @@
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Benchmarks\0410184_169.qasm" />
+    <Content Include="Benchmarks\3_17_13.qasm" />
+    <Content Include="Benchmarks\3_17_13_2.qasm" />
+    <Content Include="Benchmarks\4gt13_92.qasm" />
+    <Content Include="Benchmarks\4gt4-v0_72.qasm" />
+    <Content Include="Benchmarks\4gt5_76.qasm" />
+    <Content Include="Benchmarks\4gt5_77.qasm" />
+    <Content Include="Benchmarks\4mod5-bdd_287.qasm" />
+    <Content Include="Benchmarks\4mod5-v0_20.qasm" />
+    <Content Include="Benchmarks\alu-v0_26.qasm" />
+    <Content Include="Benchmarks\alu-v2_31.qasm" />
+    <Content Include="Benchmarks\bv_10.qasm" />
+    <Content Include="Benchmarks\bv_100.qasm" />
+    <Content Include="Benchmarks\bv_20.qasm" />
+    <Content Include="Benchmarks\bv_30.qasm" />
+    <Content Include="Benchmarks\bv_40.qasm" />
+    <Content Include="Benchmarks\bv_50.qasm" />
+    <Content Include="Benchmarks\bv_60.qasm" />
+    <Content Include="Benchmarks\bv_70.qasm" />
+    <Content Include="Benchmarks\bv_80.qasm" />
+    <Content Include="Benchmarks\bv_90.qasm" />
+    <Content Include="Benchmarks\cm42a_207.qasm" />
+    <Content Include="Benchmarks\cnt3-5_179.qasm" />
+    <Content Include="Benchmarks\cnt3-5_180.qasm" />
+    <Content Include="Benchmarks\con1_216.qasm" />
+    <Content Include="Benchmarks\decod24-v0_38.qasm" />
+    <Content Include="Benchmarks\decod24-v3_45.qasm" />
+    <Content Include="Benchmarks\ex-1_166.qasm" />
+    <Content Include="Benchmarks\graycode6_47.qasm" />
+    <Content Include="Benchmarks\hwb6_56.qasm" />
+    <Content Include="Benchmarks\majority_239.qasm" />
+    <Content Include="Benchmarks\mod8-10_178.qasm" />
+    <Content Include="Benchmarks\qft_10.qasm" />
+    <Content Include="Benchmarks\qft_11.qasm" />
+    <Content Include="Benchmarks\qft_12.qasm" />
+    <Content Include="Benchmarks\qft_13.qasm" />
+    <Content Include="Benchmarks\qft_14.qasm" />
+    <Content Include="Benchmarks\qft_15.qasm" />
+    <Content Include="Benchmarks\qft_16.qasm" />
+    <Content Include="Benchmarks\qft_17.qasm" />
+    <Content Include="Benchmarks\qft_18.qasm" />
+    <Content Include="Benchmarks\qft_19.qasm" />
+    <Content Include="Benchmarks\qft_2.qasm" />
+    <Content Include="Benchmarks\qft_20.qasm" />
+    <Content Include="Benchmarks\qft_21.qasm" />
+    <Content Include="Benchmarks\qft_22.qasm" />
+    <Content Include="Benchmarks\qft_5.qasm" />
+    <Content Include="Benchmarks\qft_6.qasm" />
+    <Content Include="Benchmarks\qft_7.qasm" />
+    <Content Include="Benchmarks\qft_8.qasm" />
+    <Content Include="Benchmarks\qft_9.qasm" />
+    <Content Include="Benchmarks\quantum_volume_n2_d5.qasm" />
+    <Content Include="Benchmarks\quantum_volume_n3_d5.qasm" />
+    <Content Include="Benchmarks\quantum_volume_n4_d5.qasm" />
+    <Content Include="Benchmarks\quantum_volume_n5_d5.qasm" />
+    <Content Include="Benchmarks\quantum_volume_n6_d5.qasm" />
+    <Content Include="Benchmarks\quantum_volume_n7_d5.qasm" />
+    <Content Include="Benchmarks\quantum_volume_n8_d5.qasm" />
+    <Content Include="Benchmarks\quantum_volume_n9_d5.qasm" />
+    <Content Include="Benchmarks\rd32-v0_66.qasm" />
+    <Content Include="Benchmarks\rd53_133.qasm" />
+    <Content Include="Benchmarks\rd84_142.qasm" />
+    <Content Include="Benchmarks\sf_276.qasm" />
+    <Content Include="Benchmarks\sqn_258.qasm" />
+    <Content Include="Benchmarks\sym6_316.qasm" />
+    <Content Include="Benchmarks\sym9_146.qasm" />
+    <Content Include="Benchmarks\sys6-v0_111.qasm" />
     <Content Include="docs\requirements_docs.txt" />
     <Content Include="docs\_static\basic_mps\mps_basic_1.png" />
     <Content Include="docs\_static\basic_mps\mps_basic_2.png" />
@@ -64,6 +131,9 @@
     <Compile Include="examples\wavefunctions\wavefunctions.py" />
     <Compile Include="examples\wavefunctions\wavefunctions_test.py" />
     <Compile Include="examples\__init__.py" />
+    <Compile Include="qft_test.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="setup.py" />
     <Compile Include="tensornetwork\backends\abstract_backend.py" />
     <Compile Include="tensornetwork\backends\backend_factory.py" />
@@ -211,6 +281,7 @@
     <Compile Include="test.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Benchmarks\" />
     <Folder Include="docs" />
     <Folder Include="docs\_static" />
     <Folder Include="docs\_static\basic_mps" />
