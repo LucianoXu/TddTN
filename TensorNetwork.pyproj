@@ -154,6 +154,9 @@
     <Compile Include="tensornetwork\backends\numpy\numpy_backend.py" />
     <Compile Include="tensornetwork\backends\numpy\numpy_backend_test.py" />
     <Compile Include="tensornetwork\backends\numpy\__init__.py" />
+    <Compile Include="tensornetwork\backends\pytdd\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tensornetwork\backends\pytorch\decompositions.py" />
     <Compile Include="tensornetwork\backends\pytorch\decompositions_test.py" />
     <Compile Include="tensornetwork\backends\pytorch\pytorch_backend.py" />
@@ -165,18 +168,7 @@
     <Compile Include="tensornetwork\backends\symmetric\symmetric_backend.py" />
     <Compile Include="tensornetwork\backends\symmetric\symmetric_backend_test.py" />
     <Compile Include="tensornetwork\backends\symmetric\__init__.py" />
-    <Compile Include="tensornetwork\backends\tdd\tdd\CUDAcpl\config.py" />
-    <Compile Include="tensornetwork\backends\tdd\tdd\CUDAcpl\main.py" />
-    <Compile Include="tensornetwork\backends\tdd\tdd\CUDAcpl\quantum_basic.py" />
-    <Compile Include="tensornetwork\backends\tdd\tdd\CUDAcpl\__init__.py" />
-    <Compile Include="tensornetwork\backends\tdd\tdd\global_val.py" />
-    <Compile Include="tensornetwork\backends\tdd\tdd\methods.py" />
-    <Compile Include="tensornetwork\backends\tdd\tdd\node.py" />
-    <Compile Include="tensornetwork\backends\tdd\tdd\tdd.py" />
-    <Compile Include="tensornetwork\backends\tdd\tdd\weighted_node.py" />
-    <Compile Include="tensornetwork\backends\tdd\tdd\__init__.py" />
     <Compile Include="tensornetwork\backends\pytdd\pytdd_backend.py" />
-    <Compile Include="tensornetwork\backends\tdd\__init__.py" />
     <Compile Include="tensornetwork\backends\tensorflow\decompositions.py" />
     <Compile Include="tensornetwork\backends\tensorflow\decompositions_test.py" />
     <Compile Include="tensornetwork\backends\tensorflow\tensordot2.py" />
@@ -303,8 +295,6 @@
     <Folder Include="tensornetwork\backends\pytorch" />
     <Folder Include="tensornetwork\backends\symmetric" />
     <Folder Include="tensornetwork\backends\pytdd\" />
-    <Folder Include="tensornetwork\backends\tdd\tdd" />
-    <Folder Include="tensornetwork\backends\tdd\tdd\CUDAcpl" />
     <Folder Include="tensornetwork\backends\tensorflow" />
     <Folder Include="tensornetwork\block_sparse" />
     <Folder Include="tensornetwork\contractors" />

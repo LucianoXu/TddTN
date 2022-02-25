@@ -1,16 +1,18 @@
 # pylint: disable=line-too-long
-from typing import Optional, Any, Sequence, Tuple, Callable, List, Type
+from __future__ import annotations
+from typing import Optional, Any, Sequence, Tuple, Callable, List, Type, Union
 from typing import Union
 from tensornetwork.backends import abstract_backend
 #from tensornetwork.backends.pytorch import decompositions
 
 
-from pytdd import interface
+from pytdd import TDD
 import numpy as np
 
 # pylint: disable=abstract-method
 
-Tensor = interface.TDD
+Tensor = TDD
+
 
 class TDDBackend(abstract_backend.AbstractBackend):
   """See base_backend.BaseBackend for documentation."""
@@ -26,12 +28,13 @@ class TDDBackend(abstract_backend.AbstractBackend):
     print("a: ",a.index_order)
     print("b: ",b.index_order)
     print(axes)
-    return interface.tensordot(a, b, axes=axes)
+
+    return TDD.tensordot(a, b, axes)
 
   def transpose(self, tensor, perm=None) -> Tensor:
     if perm is None:
       perm = tuple(range(tensor.dim_data - 1, -1, -1))
-    return interface.permute(tensor,perm)
+    return TDD.permute(tensor,perm)
 
   def shape_concat(self, values: Tuple[Optional[int],...], axis: int) -> Tuple[Optional[int],...]:
     return np.concatenate(values, axis)
@@ -47,16 +50,8 @@ class TDDBackend(abstract_backend.AbstractBackend):
     return np.prod(np.array(values))
 
   def convert_to_tensor(self, tensor: Any) -> Tensor:
-    if isinstance(tensor, interface.TDD):
-        return interface.as_tensor(tensor)
-    else:
-        rank = len(tensor.shape)//2
-        order = []
-        for i in range(rank):
-            order.append(i)
-            order.append(i+rank)
-        return interface.as_tensor((tensor,0,order))
+    return TDD.as_tensor(tensor)
 
   def outer_product(self, tensor1: Tensor, tensor2: Tensor) -> Tensor:
-    return interface.tensordot(tensor1, tensor2, axes=0)
+    return TDD.tensordot(tensor1, tensor2, 0)
 

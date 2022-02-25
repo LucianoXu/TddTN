@@ -13,6 +13,14 @@ import sys
 
 from qiskit_phaser import SimQiskitCir
 
+def timing(method, count=1):
+    t1 = time.perf_counter()
+    for i in range(count):
+        method()
+    t2 = time.perf_counter()
+    print('total time: {}s, average time: {}s'.format(t2-t1, (t2-t1)/count))
+    return (t2-t1)/count
+
 
 
 path="Benchmarks/"
@@ -20,16 +28,21 @@ file_name="qft_10.qasm"
 
 do_numpy_backend = True
 
+def PytorchCalc():
+    global cir, U_old
+    U_old = SimQiskitCir(cir, False)
+
+def PytddCalc():
+    global cir, U_new
+    U_new = SimQiskitCir(cir, True)
+
 for i in range(3):
 
     if do_numpy_backend:
         print("=====================================================\n")
         tn.set_default_backend('numpy')
         cir=QuantumCircuit.from_qasm_file(path+file_name)
-        t_start= time.time()
-        U_old=SimQiskitCir(cir)
-        t_end=time.time()
-        print('Time:',t_end-t_start)
+        timing(PytorchCalc)
         print("\n")
 
 
@@ -39,11 +52,7 @@ for i in range(3):
     tn.set_default_backend('pytdd')
     
     cir=QuantumCircuit.from_qasm_file(path+file_name)
-    t_start= time.time()
-    U_new = SimQiskitCir(cir)
-    t_end=time.time()
-    print()
-    print('Time:',t_end-t_start)
+    timing(PytddCalc)
     #U.show()
     print()
     print("tdd result size: ", U_new.size())
