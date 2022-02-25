@@ -18,10 +18,14 @@ class TDDBackend(abstract_backend.AbstractBackend):
   def __init__(self) -> None:
     super().__init__()
     # pylint: disable=global-variable-undefined
-    self.name = "tdd"
+    self.name = "pytdd"
   
   def tensordot(self, a: Tensor, b: Tensor,
                 axes: Union[int, Sequence[Sequence[int]]]) -> Tensor:
+    print()
+    print("a: ",a.index_order)
+    print("b: ",b.index_order)
+    print(axes)
     return interface.tensordot(a, b, axes=axes)
 
   def transpose(self, tensor, perm=None) -> Tensor:
@@ -34,16 +38,24 @@ class TDDBackend(abstract_backend.AbstractBackend):
 
   
   def shape_tensor(self, tensor: Tensor) -> Tuple[Optional[int],...]:
-    return tuple(tensor.data_shape)
+    return tuple(tensor.shape)
   
   def shape_tuple(self, tensor: Tensor) -> Tuple[Optional[int], ...]:
-    return tuple(tensor.data_shape)
+    return tuple(tensor.shape)
     
   def shape_prod(self, values: Tuple[Optional[int], ...]) -> int:
     return np.prod(np.array(values))
 
   def convert_to_tensor(self, tensor: Any) -> Tensor:
-    return interface.as_tensor(tensor)
+    if isinstance(tensor, interface.TDD):
+        return interface.as_tensor(tensor)
+    else:
+        rank = len(tensor.shape)//2
+        order = []
+        for i in range(rank):
+            order.append(i)
+            order.append(i+rank)
+        return interface.as_tensor((tensor,0,order))
 
   def outer_product(self, tensor1: Tensor, tensor2: Tensor) -> Tensor:
     return interface.tensordot(tensor1, tensor2, axes=0)

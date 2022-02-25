@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{dac09aed-7a7a-4c26-995e-95d30c60de21}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>qft_test.py</StartupFile>
+    <StartupFile>benchmark_test.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -63,6 +63,8 @@
     <Content Include="Benchmarks\qft_17.qasm" />
     <Content Include="Benchmarks\qft_18.qasm" />
     <Content Include="Benchmarks\qft_19.qasm" />
+    <Content Include="Benchmarks\qft_4.qasm" />
+    <Content Include="Benchmarks\qft_3.qasm" />
     <Content Include="Benchmarks\qft_2.qasm" />
     <Content Include="Benchmarks\qft_20.qasm" />
     <Content Include="Benchmarks\qft_21.qasm" />
@@ -103,7 +105,6 @@
     <Content Include="docs\_static\subgraph_contract.png" />
     <Content Include="docs\_static\svd.png" />
     <Content Include="docs\_static\tensornetwork_logo.jpg" />
-    <Content Include="output.png" />
     <Content Include="requirements.txt" />
     <Content Include="requirements_travis.txt" />
     <Content Include="tensornetwork\tn_keras\images\condenser.png" />
@@ -131,7 +132,10 @@
     <Compile Include="examples\wavefunctions\wavefunctions.py" />
     <Compile Include="examples\wavefunctions\wavefunctions_test.py" />
     <Compile Include="examples\__init__.py" />
-    <Compile Include="qft_test.py">
+    <Compile Include="qiskit_phaser.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="benchmark_test.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="setup.py" />
@@ -171,7 +175,7 @@
     <Compile Include="tensornetwork\backends\tdd\tdd\tdd.py" />
     <Compile Include="tensornetwork\backends\tdd\tdd\weighted_node.py" />
     <Compile Include="tensornetwork\backends\tdd\tdd\__init__.py" />
-    <Compile Include="tensornetwork\backends\tdd\tdd_backend.py" />
+    <Compile Include="tensornetwork\backends\pytdd\pytdd_backend.py" />
     <Compile Include="tensornetwork\backends\tdd\__init__.py" />
     <Compile Include="tensornetwork\backends\tensorflow\decompositions.py" />
     <Compile Include="tensornetwork\backends\tensorflow\decompositions_test.py" />
@@ -298,7 +302,7 @@
     <Folder Include="tensornetwork\backends\numpy" />
     <Folder Include="tensornetwork\backends\pytorch" />
     <Folder Include="tensornetwork\backends\symmetric" />
-    <Folder Include="tensornetwork\backends\tdd" />
+    <Folder Include="tensornetwork\backends\pytdd\" />
     <Folder Include="tensornetwork\backends\tdd\tdd" />
     <Folder Include="tensornetwork\backends\tdd\tdd\CUDAcpl" />
     <Folder Include="tensornetwork\backends\tensorflow" />
