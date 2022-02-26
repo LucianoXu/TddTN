@@ -11,7 +11,7 @@ import pandas as pd
 import random
 import sys
 
-from qiskit_phaser import SimQiskitCir
+from qiskit_phaser import SimQiskitCir, SimQiskitCir_tdd
 
 def timing(method, count=1):
     t1 = time.perf_counter()
@@ -24,17 +24,17 @@ def timing(method, count=1):
 
 
 path="Benchmarks/"
-file_name="qft_10.qasm"
+file_name="quantum_volume_n8_d5.qasm"
 
 do_numpy_backend = True
 
 def PytorchCalc():
     global cir, U_old
-    U_old = SimQiskitCir(cir, False)
+    U_old = SimQiskitCir(cir)
 
 def PytddCalc():
     global cir, U_new
-    U_new = SimQiskitCir(cir, True)
+    U_new = SimQiskitCir_tdd(cir)
 
 for i in range(3):
 

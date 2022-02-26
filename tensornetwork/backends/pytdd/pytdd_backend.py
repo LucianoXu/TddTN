@@ -25,11 +25,11 @@ class TDDBackend(abstract_backend.AbstractBackend):
   def tensordot(self, a: Tensor, b: Tensor,
                 axes: Union[int, Sequence[Sequence[int]]]) -> Tensor:
     print()
-    print("a: ",a.index_order)
-    print("b: ",b.index_order)
+    print("a: ",a.storage_order)
+    print("b: ",b.storage_order)
     print(axes)
-
-    return TDD.tensordot(a, b, axes)
+    res = TDD.tensordot(a, b, axes)
+    return res
 
   def transpose(self, tensor, perm=None) -> Tensor:
     if perm is None:
