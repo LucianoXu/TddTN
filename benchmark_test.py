@@ -22,9 +22,9 @@ def timing(method, count=1):
     return (t2-t1)/count
 
 
-
+pytdd.setting_update(3)
 path="Benchmarks/"
-file_name="quantum_volume_n8_d5.qasm"
+file_name="qft_11.qasm"
 
 do_numpy_backend = True
 
@@ -50,16 +50,20 @@ for i in range(3):
 
     print("=====================================================\n")
     tn.set_default_backend('pytdd')
+    pytdd.reset()
     
     cir=QuantumCircuit.from_qasm_file(path+file_name)
     timing(PytddCalc)
     #U.show()
     print()
-    print("tdd result size: ", U_new.size())
+    tdd_size = U_new.size()
+    print("tdd result size: ", tdd_size)
+    #U_new.show(str(i))
     print()
     print("tdd info:")
 
     print(U_new.info)
+    #U_new.show()
 
 
     #print(str(U_new))

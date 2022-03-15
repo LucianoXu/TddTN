@@ -6,7 +6,7 @@ from tensornetwork.backends import abstract_backend
 #from tensornetwork.backends.pytorch import decompositions
 
 
-from pytdd import TDD
+from pytdd import TDD, GlobalOrderCoordinator
 import numpy as np
 
 # pylint: disable=abstract-method
@@ -20,21 +20,22 @@ class TDDBackend(abstract_backend.AbstractBackend):
   def __init__(self) -> None:
     super().__init__()
     # pylint: disable=global-variable-undefined
-    self.name = "pytdd"
+    self.coordinator = GlobalOrderCoordinator()
+    self.name = "pytdd - global order coordinator"
   
   def tensordot(self, a: Tensor, b: Tensor,
                 axes: Union[int, Sequence[Sequence[int]]]) -> Tensor:
     print()
-    print("a: ",a.storage_order)
-    print("b: ",b.storage_order)
+    print("a: ",a.tensor.storage_order)
+    print("b: ",b.tensor.storage_order)
     print(axes)
-    res = TDD.tensordot(a, b, axes)
+    res = self.coordinator.tensordot(a, b, axes)
     return res
 
   def transpose(self, tensor, perm=None) -> Tensor:
     if perm is None:
       perm = tuple(range(tensor.dim_data - 1, -1, -1))
-    return TDD.permute(tensor,perm)
+    return self.coordinator.permute(tensor,perm)
 
   def shape_concat(self, values: Tuple[Optional[int],...], axis: int) -> Tuple[Optional[int],...]:
     return np.concatenate(values, axis)
@@ -50,8 +51,8 @@ class TDDBackend(abstract_backend.AbstractBackend):
     return np.prod(np.array(values))
 
   def convert_to_tensor(self, tensor: Any) -> Tensor:
-    return TDD.as_tensor(tensor)
+    return self.coordinator.as_tensor(tensor)
 
   def outer_product(self, tensor1: Tensor, tensor2: Tensor) -> Tensor:
-    return TDD.tensordot(tensor1, tensor2, 0)
+    return self.coordinator.tensordot(tensor1, tensor2, 0)
 
