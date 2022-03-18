@@ -80,7 +80,7 @@ def SimQiskitCir_tdd(cir):
 
         qubit_current_index = [0] * qubit_num
         for i in range(1, qubit_num):
-            qubit_current_index[i] = qubit_current_index[i-1] + 1 + qubit_edge_numbers[i]
+            qubit_current_index[i] = qubit_current_index[i-1] + 1 + qubit_edge_numbers[i-1]
 
 
         #first 
