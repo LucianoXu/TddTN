@@ -5,8 +5,8 @@ from typing import Union
 from tensornetwork.backends import abstract_backend
 #from tensornetwork.backends.pytorch import decompositions
 
-import pytdd
-from pytdd import TDD, GlobalOrderCoordinator
+import tddpy
+from tddpy import TDD, GlobalOrderCoordinator
 import numpy as np
 
 # pylint: disable=abstract-method
@@ -21,14 +21,14 @@ class TDDBackend(abstract_backend.AbstractBackend):
     super().__init__()
     # pylint: disable=global-variable-undefined
     self.coordinator = GlobalOrderCoordinator()
-    self.name = "pytdd - global order coordinator"
+    self.name = "tddpy - global order coordinator"
   
   def tensordot(self, a: Tensor, b: Tensor,
                 axes: Union[int, Sequence[Sequence[int]]]) -> Tensor:
-    print()
-    print("a: ",a.tensor.storage_order)
-    print("b: ",b.tensor.storage_order)
-    print(axes)
+    #print()
+    #print("a: ",a.tensor.storage_order)
+    #print("b: ",b.tensor.storage_order)
+    #print(axes)
     res = self.coordinator.tensordot(a, b, axes)
     return res
 

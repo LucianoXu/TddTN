@@ -38,5 +38,5 @@ coverage.xml
 .DS_Store
 
 tensornetwork/backends/tdd/tdd/
-tensornetwork/backends/tdd/pytdd/
+tensornetwork/backends/tdd/tddpy/
 Benchmarks/

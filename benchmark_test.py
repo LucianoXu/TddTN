@@ -1,7 +1,7 @@
 
 import numpy as np
 import tensornetwork as tn
-import pytdd
+import tddpy
 import time
 import datetime
 from qiskit import QuantumCircuit
@@ -24,11 +24,13 @@ def timing(method, count=1):
     return (t2-t1)/count
 
 
-pytdd.setting_update(4, False, True, 3e-7, 0.3, 10000)
-path="Benchmarks/"
-file_name="quantum_volume_n10_d5.qasm"
+tddpy.setting_update(4, False, True, 3e-7, 0.5, 13000)
+tddpy.TDD.check_parameter(False)
 
-do_numpy_backend = False
+path="Benchmarks/"
+file_name="quantum_volume_n8_d5.qasm"
+
+do_numpy_backend = True
 
 def PytorchCalc():
     global cir, U_old
@@ -47,8 +49,9 @@ for m in range(1):
         timing(PytorchCalc)
         print("\n")
 
+        
 
-
+        '''
         # convert to Xin Hong's TDD
         s = U_old.shape
 
@@ -61,10 +64,11 @@ for m in range(1):
         ts1=tdd_origin.TN.Tensor(U_old,var)
         ts1.tdd().show()
         ##############
+        '''
 
     print("=====================================================\n")
-    tn.set_default_backend('pytdd')
-    pytdd.clear_cache()
+    tn.set_default_backend('tddpy')
+    tddpy.clear_cache()
     
     cir=QuantumCircuit.from_qasm_file(path+file_name)
     timing(PytddCalc)
@@ -85,8 +89,10 @@ for m in range(1):
     print(U_old-U_new.val)
     '''
     if do_numpy_backend:
-        print("max diff: ",np.max(U_old - U_new.numpy()))
+        pass
+        #print("max diff: ",np.max(U_old - U_new.numpy()))
+    
 
 
-#pytdd.clear_cache()
-pytdd.test()
+    #tddpy.clear_cache()
+    #tddpy.test()
