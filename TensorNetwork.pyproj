@@ -14,6 +14,8 @@
     <InterpreterId />
     <IsWindowsApplication>False</IsWindowsApplication>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+    <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
+    <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -25,13 +27,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Benchmarks\0410184_169.qasm" />
+    <Content Include="Benchmarks\3_17_13_squeezed.qasm" />
     <Content Include="Benchmarks\3_17_13.qasm" />
     <Content Include="Benchmarks\3_17_13_2.qasm" />
     <Content Include="Benchmarks\4gt13_92.qasm" />
     <Content Include="Benchmarks\4gt4-v0_72.qasm" />
     <Content Include="Benchmarks\4gt5_76.qasm" />
     <Content Include="Benchmarks\4gt5_77.qasm" />
+    <Content Include="Benchmarks\4mod5-bdd_287_squeezed.qasm" />
     <Content Include="Benchmarks\4mod5-bdd_287.qasm" />
+    <Content Include="Benchmarks\4mod5-v0_20_squeezed.qasm" />
     <Content Include="Benchmarks\4mod5-v0_20.qasm" />
     <Content Include="Benchmarks\alu-v0_26.qasm" />
     <Content Include="Benchmarks\alu-v2_31.qasm" />
@@ -55,6 +60,7 @@
     <Content Include="Benchmarks\graycode6_47.qasm" />
     <Content Include="Benchmarks\hwb6_56.qasm" />
     <Content Include="Benchmarks\majority_239.qasm" />
+    <Content Include="Benchmarks\mod8-10_178_squeezed.qasm" />
     <Content Include="Benchmarks\mod8-10_178.qasm" />
     <Content Include="Benchmarks\qft_10.qasm" />
     <Content Include="Benchmarks\qft_11.qasm" />
@@ -158,6 +164,12 @@
     <Compile Include="tensornetwork\backends\abstract_backend.py" />
     <Compile Include="tensornetwork\backends\backend_factory.py" />
     <Compile Include="tensornetwork\backends\backend_test.py" />
+    <Compile Include="tensornetwork\backends\CUDAcpl\CUDAcpl_backend.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tensornetwork\backends\CUDAcpl\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tensornetwork\backends\decorators.py" />
     <Compile Include="tensornetwork\backends\decorators_test.py" />
     <Compile Include="tensornetwork\backends\jax\jax_backend.py" />
@@ -305,6 +317,7 @@
     <Folder Include="tensornetwork" />
     <Folder Include="tensornetwork\backends" />
     <Folder Include="tensornetwork\backends\jax" />
+    <Folder Include="tensornetwork\backends\CUDAcpl\" />
     <Folder Include="tensornetwork\backends\numpy" />
     <Folder Include="tensornetwork\backends\pytorch" />
     <Folder Include="tensornetwork\backends\symmetric" />

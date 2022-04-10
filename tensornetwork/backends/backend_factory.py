@@ -19,6 +19,7 @@ from tensornetwork.backends.jax import jax_backend
 from tensornetwork.backends.pytorch import pytorch_backend
 from tensornetwork.backends.symmetric import symmetric_backend
 from tensornetwork.backends.tddpy import tddpy_backend
+from tensornetwork.backends.CUDAcpl import CUDAcpl_backend
 from tensornetwork.backends import abstract_backend
 _BACKENDS = {
     "tensorflow": tensorflow_backend.TensorFlowBackend,
@@ -26,7 +27,8 @@ _BACKENDS = {
     "jax": jax_backend.JaxBackend,
     "pytorch": pytorch_backend.PyTorchBackend,
     "symmetric": symmetric_backend.SymmetricBackend,
-    "tddpy": tddpy_backend.TDDBackend
+    "tddpy": tddpy_backend.TDDBackend,
+    "CUDAcpl": CUDAcpl_backend.CUDAcplBackend
 }
 
 #we instantiate each backend only once and store it here

@@ -24,73 +24,82 @@ def timing(method, count=1):
     return (t2-t1)/count
 
 
-tddpy.setting_update(4, False, True, 3e-7, 0.5, 13000)
+tddpy.reset(4, False, True, 3e-7, 0.5, 13000)
 tddpy.TDD.check_parameter(False)
 
 path="Benchmarks/"
-file_name="quantum_volume_n8_d5.qasm"
+file_name="mod8-10_178_squeezed.qasm"
 
 do_numpy_backend = True
 
 def PytorchCalc():
-    global cir, U_old
-    U_old = SimQiskitCir(cir)
+    global cir, U_matrix
+    U_matrix = SimQiskitCir(cir)
 
-def PytddCalc():
-    global cir, U_new
-    U_new = SimQiskitCir_tdd(cir)
+def TddPyCalc():
+    global cir, U_tddpy
+    U_tddpy = SimQiskitCir_tdd(cir)
 
 for m in range(1):
 
     if do_numpy_backend:
         print("=====================================================\n")
-        tn.set_default_backend('numpy')
+        tn.set_default_backend('CUDAcpl')
         cir=QuantumCircuit.from_qasm_file(path+file_name)
         timing(PytorchCalc)
+        U_matrix = tddpy.CUDAcpl.CUDAcpl2np(U_matrix.tensor)
         print("\n")
 
         
 
-        '''
+        
         # convert to Xin Hong's TDD
-        s = U_old.shape
+        s = U_matrix.shape
 
         tdd_origin.TDD.Ini_TDD([str(i) for i in range(len(s))])
         var=[]
+        
         for i in range(len(s)//2):
             var.append(tdd_origin.TN.Index(str(i)))
             var.append(tdd_origin.TN.Index(str(i + len(s)//2)))
+        
+        ts1=tdd_origin.TN.Tensor(U_matrix,var)
+        ori_tdd = ts1.tdd()
+        
+        print("Original TDD size: ",ori_tdd.size())
 
-        ts1=tdd_origin.TN.Tensor(U_old,var)
-        ts1.tdd().show()
+        ori_tdd.show()
         ##############
-        '''
+
+        # convert into TddPy
+        storage_order = []
+        for i in range(len(s)//2):
+            storage_order.append(i)
+            storage_order.append(i + len(s)//2)
+
+        U_tddpy_converted = tddpy.TDD.as_tensor((U_matrix, 0, storage_order))
+        print("TddPy (converted from matrix) size: ", U_tddpy_converted.size())
+        #################
 
     print("=====================================================\n")
     tn.set_default_backend('tddpy')
     tddpy.clear_cache()
     
     cir=QuantumCircuit.from_qasm_file(path+file_name)
-    timing(PytddCalc)
+    timing(TddPyCalc)
     print()
-    tdd_size = U_new.size()
-    print("tdd result size: ", tdd_size)
-    #U_new.tensor.show(str(m))
+    tdd_size = U_tddpy.size()
+    print("tddpy result size: ", tdd_size)
+    U_tddpy.tensor.show("tddpy")
     print()
     print("tdd info:")
 
-    print(U_new.info)
-    #U_new.show()
+    print(U_tddpy.info)
 
 
-    #print(str(U_new))
-    '''print("\n")
-    print("\n\n\n\n\n######################################################")
-    print(U_old-U_new.val)
-    '''
     if do_numpy_backend:
         pass
-        #print("max diff: ",np.max(U_old - U_new.numpy()))
+        print("max diff: ",np.max(U_matrix - U_tddpy.numpy()))
     
 
 
