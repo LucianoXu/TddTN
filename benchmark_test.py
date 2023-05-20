@@ -6,14 +6,14 @@ import time
 import datetime
 from qiskit import QuantumCircuit
 from qiskit.quantum_info.operators import Operator
-from func_timeout import func_set_timeout
-import pandas as pd
+# from func_timeout import func_set_timeout
+# import pandas as pd
 import random
 import sys
 
 import tdd_origin
 
-from qiskit_phaser import SimQiskitCir, SimQiskitCir_tdd
+from tnparser import qiskit_parser
 
 def timing(method, count=1):
     t1 = time.perf_counter()
@@ -34,11 +34,11 @@ do_numpy_backend = True
 
 def PytorchCalc():
     global cir, U_matrix
-    U_matrix = SimQiskitCir(cir)
+    U_matrix = qiskit_phaser.SimQiskitCir(cir)
 
 def TddPyCalc():
     global cir, U_tddpy
-    U_tddpy = SimQiskitCir_tdd(cir)
+    U_tddpy = qiskit_phaser.SimQiskitCir_tdd(cir)
 
 for m in range(1):
 

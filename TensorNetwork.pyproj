@@ -11,7 +11,7 @@
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <InterpreterId />
+    <InterpreterId>CondaEnv|CondaEnv|TddPy</InterpreterId>
     <IsWindowsApplication>False</IsWindowsApplication>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
     <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
@@ -154,9 +154,6 @@
     <Compile Include="examples\wavefunctions\wavefunctions.py" />
     <Compile Include="examples\wavefunctions\wavefunctions_test.py" />
     <Compile Include="examples\__init__.py" />
-    <Compile Include="qiskit_phaser.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="benchmark_test.py">
       <SubType>Code</SubType>
     </Compile>
@@ -301,6 +298,8 @@
     <Compile Include="tensornetwork\visualization\__init__.py" />
     <Compile Include="tensornetwork\__init__.py" />
     <Compile Include="test.py" />
+    <Compile Include="tnparser\qiskit_parser.py" />
+    <Compile Include="tnparser\__init__.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Benchmarks\" />
@@ -335,6 +334,7 @@
     <Folder Include="tensornetwork\tn_keras" />
     <Folder Include="tensornetwork\tn_keras\images" />
     <Folder Include="tensornetwork\visualization" />
+    <Folder Include="tnparser\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TddPy\tddpy\tddpy.pyproj">
@@ -342,6 +342,9 @@
       <Project>{5f5efa84-b7f3-4cd6-afeb-60291febebb3}</Project>
       <Private>True</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="CondaEnv|CondaEnv|TddPy" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>
